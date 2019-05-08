@@ -37,7 +37,10 @@
 ## 配置Git
 
 * 用户名：git config --global user.name ""
+
 * 邮箱：git config --global user.emall ""
+
+  记不住就直接使用，在commit的时候会提示
 
 ## 配置SSH
 
@@ -56,6 +59,8 @@ ssh-keygen -t rsa -C emall
 * 推送到远程：
    * 第一次：git push -u origin master
    
+   也可先在版本库创建项目，拉去修改后再推送，不用关联项目
+
 ## 下载
 
 git clone 地址
