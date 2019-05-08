@@ -91,11 +91,11 @@ MyBatis可以简化JDBC操作，实现数据的持久化
             System.out.println(user.getUname());
             System.out.println(user.getUpass());
             System.out.println(user.getUnname());
+            session.close();
          } catch (IOException e) {
             // TODO Auto-generated catch block
             e.printStackTrace();
          }
       }
    }
-
    ```
