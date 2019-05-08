@@ -18,7 +18,7 @@ MyBatis可以简化JDBC操作，实现数据的持久化
    <!DOCTYPE mapper
      PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
      "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-   <mapper namespace="实体类全限定路径名">
+   <mapper namespace="映射全限定路径名">
      <!-- id是唯一标识符 -->
      <!-- parameterType输入类型，跟#{}类型一致 -->
      <!-- resultType返回类型，自定义实体类是全限定路径 -->
@@ -26,4 +26,45 @@ MyBatis可以简化JDBC操作，实现数据的持久化
        select * from Blog where id = #{id}
      </select>
    </mapper>
+   ```
+   **注意**：模板文件和配置文件都在下载的MyBatis文件中的PDF文件中有
+
+4. MyBatis配置
+   在src下创建config.xml
+   
+   
+5. 测试
+   ```java
+   import java.io.IOException;
+   import java.io.Reader;
+
+   import org.apache.ibatis.io.Resources;
+   import org.apache.ibatis.session.SqlSession;
+   import org.apache.ibatis.session.SqlSessionFactory;
+   import org.apache.ibatis.session.SqlSessionFactoryBuilder;
+
+   public class Test {
+
+      public static void main(String[] args) {
+         //加载MyBatis配置文件
+         try {
+            Reader reader = Resources.getResourceAsReader("config.xml");
+            SqlSessionFactory sessionFactory = new SqlSessionFactoryBuilder().build(reader);
+            SqlSession session = sessionFactory.openSession();
+            //操作数据库
+            //sql：namespace.id
+            String sql = "demo.UserMapper.selectUserById";
+            //虽然selectOne返回Object类型，但在Mapper中申明了返回类型
+            User user = session.selectOne(sql,1);
+            System.out.println(user.getUid());
+            System.out.println(user.getUname());
+            System.out.println(user.getUpass());
+            System.out.println(user.getUnname());
+         } catch (IOException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+         }
+      }
+   }
+
    ```
