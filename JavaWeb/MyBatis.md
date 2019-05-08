@@ -64,7 +64,7 @@ MyBatis可以简化JDBC操作，实现数据的持久化
    password = fanjun
    ```
    
-5. 基础的增删改查（CRED）
+5. 基础的增删改查（CRUD）
 
    Mapper文件
    ```xml
@@ -208,10 +208,14 @@ MyBatis可以简化JDBC操作，实现数据的持久化
    ```
 
 ## 官方推荐使用方式
-Mapper动态代理的CRED（MyBatis接口开发）
+Mapper动态代理的CRUD（MyBatis接口开发）
 
 原则：约定优于配置
 
 具体的实现步骤
 1. 基础环境：JDBC包和MyBatis核心包、config配置文件、Mapper文件
 2. 与基础方式不同的是，根据约定直接定位SQL
+   * 创建接口,约定如下
+      * 方法名和ID值相同
+      * 输入参数和parameterType一致（变量名通常也一致）（没有不写）
+      * 返回值和resultType一致，没有是void
