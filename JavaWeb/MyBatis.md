@@ -250,4 +250,8 @@ Mapper动态代理的CRUD（MyBatis接口开发）
 
 开启日志
 * 在config中，properties标签下
-
+   ```xml
+   <settings>
+      <setting name="logImpl" value="LOG4J"/>
+   </settings>
+   ```
