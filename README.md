@@ -1,4 +1,4 @@
 ## 网站导航
-[盒子部落](https://www.hezibuluo.com/)，互联网软件资源分享平台
+[盒子部落](https://www.hezibuluo.com/)：互联网软件资源分享平台
 
-[PanDownload](http://pandownload.com/)，Windows下的网盘下载工具
+[PanDownload](http://pandownload.com/)：Windows下的网盘下载工具
