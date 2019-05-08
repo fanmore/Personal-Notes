@@ -64,10 +64,43 @@ MyBatis可以简化JDBC操作，实现数据的持久化
    password = fanjun
    ```
    
-5. 测试
+5. 基础的增删改查（CRED）
+   Mapper文件
+   ```xml
+   <?xml version="1.0" encoding="UTF-8" ?>
+   <!DOCTYPE mapper
+      PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+      "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+      <!-- namespace:映射文件类路径名 -->
+   <mapper namespace="demo.UserMapper">
+      <!-- id是唯一标识符 -->
+      <!-- parameterType输入类型，跟#{}类型一致 -->
+      <!-- resultType返回类型，自定义实体类是全限定路径 -->
+      <select id="selectUserById" parameterType="int" resultType="demo.User">
+         select * from user where uid = #{uid}
+      </select>
+      <!-- MyBatis在语法上只允许一个输入值一个输出值 -->
+      <!-- 简单类型输入#{xxx}内可以随意写，但对象时属性名字必须和实体类一一对应，建议都对应 -->
+      <insert id="insertUser" parameterType="demo.User">
+         insert into user(uname,upass,unname) values(#{uname},#{upass},#{unname})
+      </insert>
+      <update id="updateUserById" parameterType="demo.User">
+         update user set uname = #{uname}, upass = #{upass}, unname = #{unname} where uid = #{uid}
+      </update>
+      <delete id="deleteUserById" parameterType="int">
+         delete from user where uid = #{uid}
+      </delete>
+      <!-- MyBatis约定，返回值是一个还是多个都一样，按一个处理 -->
+      <select id="selectAllUser" resultType="demo.User">
+         select * from user
+      </select>
+   </mapper>
+   ```
+   测试文件
    ```java
    import java.io.IOException;
    import java.io.Reader;
+   import java.util.List;
 
    import org.apache.ibatis.io.Resources;
    import org.apache.ibatis.session.SqlSession;
@@ -76,25 +109,97 @@ MyBatis可以简化JDBC操作，实现数据的持久化
 
    public class Test {
 
-      public static void main(String[] args) {
-         //加载MyBatis配置文件
+      //用于连接，方便关闭
+      public static SqlSession session = null;
+
+      //加载MyBatis配置文件
+      public SqlSession connect() {
+         Reader reader;
+
          try {
-            Reader reader = Resources.getResourceAsReader("config.xml");
+            reader = Resources.getResourceAsReader("config.xml");
             SqlSessionFactory sessionFactory = new SqlSessionFactoryBuilder().build(reader);
-            SqlSession session = sessionFactory.openSession();
-            //操作数据库
-            //sql：namespace.id
-            String sql = "demo.UserMapper.selectUserById";
-            //虽然selectOne返回Object类型，但在Mapper中申明了返回类型
-            User user = session.selectOne(sql,1);
+            session = sessionFactory.openSession();
+         } catch (IOException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+         }
+         return session;
+      }
+
+      //查询全部
+      public void selectAllUser() {
+         SqlSession session = connect();
+         String sql = "demo.UserMapper.selectAllUser";
+         List<User> users = session.selectList(sql);
+         for(User user : users) {
             System.out.println(user.getUid());
             System.out.println(user.getUname());
             System.out.println(user.getUpass());
             System.out.println(user.getUnname());
+         }
+         if (session!=null) {
             session.close();
-         } catch (IOException e) {
-            // TODO Auto-generated catch block
-            e.printStackTrace();
+         }
+      }
+
+      //通过ID查询
+      public void selectUserById() {
+         SqlSession session = connect();
+         String sql = "demo.UserMapper.selectUserById";
+         User user = session.selectOne(sql,1);
+         System.out.println(user.getUid());
+         System.out.println(user.getUname());
+         System.out.println(user.getUpass());
+         System.out.println(user.getUnname());
+         if (session!=null) {
+            session.close();
+         }
+      }
+
+      //增加
+      public void insertUser() {
+         SqlSession session = connect();
+         String sql = "demo.UserMapper.insertUser";
+         User user = new User("fan", "123", "阿达");
+         int result = session.insert(sql, user);
+         if (result>0) {
+            System.out.println("增加"+result+"条数据成功");
+         }
+         session.commit();
+         if (session!=null) {
+            session.close();
+         }
+      }
+
+      //修改
+      public void updateUserById() {
+         SqlSession session = connect();
+         String sql = "demo.UserMapper.updateUserById";
+         User user = new User(4,"Lin", "456", "黑盒");
+         int resu = session.update(sql,user);
+         if (resu>0) {
+            System.out.println("修改"+resu+"条数据成功");
+         }
+         session.commit();
+         if (session!=null) {
+            session.close();
+         }
+      }
+
+      //通过ID删除
+      public void deleteUserById() {
+         SqlSession session = connect();
+         String sql = "demo.UserMapper.deleteUserById";
+         int resu = session.delete(sql,4);
+         if (resu>0) {
+            System.out.println("删除"+resu+"条数据成功");
+         }else {
+            System.out.println("删除失败！");
+         }
+         session.commit();
+         if (session!=null) {
+            session.close();
          }
       }
    }
