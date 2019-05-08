@@ -255,3 +255,15 @@ Mapper动态代理的CRUD（MyBatis接口开发）
       <setting name="logImpl" value="LOG4J"/>
    </settings>
    ```
+* 配置文件
+   ```xml
+   # Global logging configuration
+   log4j.rootLogger=DEBUG, stdout
+   # MyBatis logging configuration...
+   log4j.logger.org.mybatis.example.BlogMapper=TRACE
+   # Console output...
+   log4j.appender.stdout=org.apache.log4j.ConsoleAppender
+   log4j.appender.stdout.layout=org.apache.log4j.PatternLayout
+   log4j.appender.stdout.layout.ConversionPattern=%5p [%t] - %m%n
+   ```
+在PDF中可以找到，日志级别：DEBUG > INFO > WARN > ERROR
