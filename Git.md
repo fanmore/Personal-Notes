@@ -13,7 +13,7 @@
 版本库的交流
   * 推送 push
   * 拉取 pull
-  
+
 ## 命令
 
 * git add：将本地文件增加到暂存区
@@ -65,4 +65,8 @@ git clone 地址
 * git add .
 * git commit -m ""
 * git push origin master
+
+## 更新到本地
+
+git push
 
