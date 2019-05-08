@@ -22,4 +22,4 @@
 * git pull：将远程仓库（远程分支）的内容拉去到本地仓库（本地分支）
 
 ## 下载
-[Git官网](msysgit.github.io)
+[Git官网](https://github.com/git-for-windows/git/releases/)
