@@ -223,6 +223,6 @@ Mapper动态代理的CRUD（MyBatis接口开发）
       执行方法，替换SQL语句的位置
       ```java
       UserMapper user1 = session.getMapper(UserMapper.class);
-		User user = user1.selectUserById(1);
+      User user = user1.selectUserById(1);
       ```
       
