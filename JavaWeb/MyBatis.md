@@ -226,3 +226,21 @@ Mapper动态代理的CRUD（MyBatis接口开发）
       User user = user1.selectUserById(1);
       ```
       
+别名设置
+1. 单个设置
+   在config.xml中configuration和environments标签之间
+   ```xml
+   <typeAliases>
+		<typeAlias type="demo.User" alias="User" />
+	</typeAliases>
+   ```
+   定义别名后不区分大小写
+2. 批量设置
+   同样位置
+   ```xml
+   <typeAliases>
+		<package name="demo"/>
+	</typeAliases>
+   ```
+   将整个包都别名，别名为类名
+
