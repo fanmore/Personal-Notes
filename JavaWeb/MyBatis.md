@@ -167,6 +167,7 @@ MyBatis可以简化JDBC操作，实现数据的持久化
          if (result>0) {
             System.out.println("增加"+result+"条数据成功");
          }
+         //注意事务方式为JDBC时要手动提交
          session.commit();
          if (session!=null) {
             session.close();
@@ -205,3 +206,12 @@ MyBatis可以简化JDBC操作，实现数据的持久化
       }
    }
    ```
+
+## 官方推荐使用方式
+Mapper动态代理的CRED（MyBatis接口开发）
+
+原则：约定优于配置
+
+具体的实现步骤
+1. 基础环境：JDBC包和MyBatis核心包、config配置文件、Mapper文件
+2. 与基础方式不同的是，根据约定直接定位SQL
