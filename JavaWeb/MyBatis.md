@@ -215,7 +215,14 @@ Mapper动态代理的CRUD（MyBatis接口开发）
 具体的实现步骤
 1. 基础环境：JDBC包和MyBatis核心包、config配置文件、Mapper文件
 2. 与基础方式不同的是，根据约定直接定位SQL
-   * 创建接口,约定如下
+   * 创建接口，接口的全类名和namespace相同，即名字一样，其他约定如下
+      * 通常接口文件和Mapper文件在一起，放于mapper包下（注意config中的mapper文件和mapper中的映射路径）
       * 方法名和ID值相同
       * 输入参数和parameterType一致（变量名通常也一致）（没有不写）
       * 返回值和resultType一致，没有是void
+      执行方法，替换SQL语句的位置
+      ```java
+      UserMapper user1 = session.getMapper(UserMapper.class);
+		User user = user1.selectUserById(1);
+      ```
+      
