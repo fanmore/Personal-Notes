@@ -219,14 +219,14 @@ Mapper动态代理的CRUD（MyBatis接口开发）
       * 通常接口文件和Mapper文件在一起，放于mapper包下（注意config中的mapper文件和mapper中的映射路径）
       * 方法名和ID值相同
       * 输入参数和parameterType一致（变量名通常也一致）（没有不写）
-      * 返回值和resultType一致，没有是void
+      * 返回值和resultType一致，没有是void，注意全部用List
       执行方法，替换SQL语句的位置
       ```java
       UserMapper user1 = session.getMapper(UserMapper.class);
       User user = user1.selectUserById(1);
       ```
       
-别名设置
+## 别名设置
 1. 单个设置
    在config.xml中configuration和environments标签之间
    ```xml
@@ -242,5 +242,12 @@ Mapper动态代理的CRUD（MyBatis接口开发）
 		<package name="demo"/>
 	</typeAliases>
    ```
-   将整个包都别名，别名为类名
+   将整个包都别名，别名为类名，同样不区分大小写
+
+## MyBatis整合Log4J日志
+
+加入包，MyBatis中有
+
+开启日志
+* 在config中，properties标签下
 
