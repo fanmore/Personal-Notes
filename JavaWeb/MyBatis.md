@@ -9,10 +9,10 @@ MyBatis可以简化JDBC操作，实现数据的持久化
 简单项目加入核心包即可
 
 ## 使用步骤
-1. 导入数据库连接包、MyBatis核心包
-2. 准备表对应的实体类
+1. 导入数据库连接包、MyBatis核心包并导入类路径
+2. 准备表对应的实体类，创建set、get及构造有参、无参方法
 3. 创建XxxMapper.xml映射文件
-   模板
+   模板（可写操作这张表的所有SQL语句）
    ```xml
    <?xml version="1.0" encoding="UTF-8" ?>
    <!DOCTYPE mapper
@@ -31,7 +31,38 @@ MyBatis可以简化JDBC操作，实现数据的持久化
 
 4. MyBatis配置
    在src下创建config.xml
-   
+   ```xml
+   <?xml version="1.0" encoding="UTF-8" ?>
+   <!DOCTYPE configuration
+    PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-config.dtd">
+   <configuration>
+      <properties resource="db.properties"></properties>
+      <environments default="development">
+         <environment id="development">
+            <transactionManager type="JDBC" />
+            <dataSource type="POOLED">
+               <!-- 配置数据库信息 -->
+               <property name="driver" value="${driver}" />
+               <property name="url" value="${url}" />
+               <property name="username" value="${username}" />
+               <property name="password" value="${password}" />
+            </dataSource>
+         </environment>
+      </environments>
+      <mappers>
+         <!-- 加载映射文件，映射Mapper文件路径名，注意/ -->
+         <mapper resource="demo/UserMapper.xml" />
+      </mappers>
+   </configuration>
+   ```
+   db.properties
+   ```xml
+   driver = com.mysql.cj.jdbc.Driver
+   url = jdbc:mysql://localhost:3306/blog?serverTimezone=UTC
+   username = root
+   password = fanjun
+   ```
    
 5. 测试
    ```java
