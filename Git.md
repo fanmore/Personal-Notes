@@ -22,4 +22,32 @@
 * git pull：将远程仓库（远程分支）的内容拉去到本地仓库（本地分支）
 
 ## 下载
-[Git官网](https://github.com/git-for-windows/git/releases/)
+[Git下载](https://github.com/git-for-windows/git/releases/)
+
+## 安装
+
+勾选Use Git From Git Bash Only
+
+其余默认
+
+## 配置
+
+将bin目录配置到PATH
+
+## 配置Git
+
+* 用户名：git config --global user.name ""
+* 邮箱：git config --global user.emall ""
+
+## 配置SSH
+
+ssh-keygen -t rsa -C emall
+
+放入gihub
+
+测试连通性：ssh -T git@github.com
+
+## 使用
+
+* 初始化项目：git init
+* 项目关联：git remote add oragin ...
