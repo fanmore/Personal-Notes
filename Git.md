@@ -50,4 +50,19 @@ ssh-keygen -t rsa -C emall
 ## 使用
 
 * 初始化项目：git init
-* 项目关联：git remote add oragin ...
+* 项目关联：git remote add origin ...
+* 文件放置暂存区：git add .
+* 提交本地仓库：git commit -m "注释内容"
+* 推送到远程：
+   * 第一次：git push -u origin master
+   
+## 下载
+
+git clone 地址
+
+## 提交
+
+* git add .
+* git commit -m ""
+* git push origin master
+
