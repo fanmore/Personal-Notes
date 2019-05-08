@@ -14,16 +14,17 @@ MyBatis可以简化JDBC操作，实现数据的持久化
 3. 创建XxxMapper.xml映射文件
    模板
    ```xml
-<?xml version="1.0" encoding="UTF-8" ?>
-<!DOCTYPE mapper
-	PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
-	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="实体类全限定路径名">
-	<!-- id是唯一标识符 -->
-	<!-- parameterType输入类型，跟#{}类型一致 -->
-	<!-- resultType返回类型，自定义实体类是全限定路径 -->
-	<select id="selectBlog" parameterType="int" resultType="Blog">
-		select * from Blog where id = #{id}
-	</select>
-</mapper>
+      <?xml version="1.0" encoding="UTF-8" ?>
+      <!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+      <mapper namespace="实体类全限定路径名">
+        <!-- id是唯一标识符 -->
+        <!-- parameterType输入类型，跟#{}类型一致 -->
+        <!-- resultType返回类型，自定义实体类是全限定路径 -->
+        <select id="selectBlog" parameterType="int" resultType="Blog">
+          select * from Blog where id = #{id}
+        </select>
+      </mapper>
    ```
+## 1
