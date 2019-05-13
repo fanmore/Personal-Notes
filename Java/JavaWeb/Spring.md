@@ -15,3 +15,11 @@
 * expression（表达式 jar）
 * commons-logging（日志，第三方，在 Maven 库中搜索下载）
 
+## Eclipse 的 spring 插件
+
+[下载地址](https://spring.io/tools3/sts/all)
+
+不用解压，在 Eclipse 中的 Help 中打开 intall 添加即可
+
+**注意** : 也可以直接在网址中下载集成的 Eclipse 文件
+
