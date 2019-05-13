@@ -6,7 +6,7 @@
 
 ## 基础项目
 
-jar 包
+导入 jar 包加入类路径
 
 * aop（开发AOP特性需要的 jar）
 * beans（处理 Bean 的 jar）
