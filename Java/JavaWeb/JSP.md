@@ -205,3 +205,22 @@ appliation	全局对象
 * Object getAttribute(String name)	获取对象
 * void setAttribute(String name,Object obj)    创建对象
 * k-v对
+
+## EL
+```
+${requestScope.student}
+${域对象.域对象中的属性.属性.属性}
+${[''][""]}
+```
+EL操作符：
+* 点操作符 .  使用方便
+* 中括号操作符 [] 中间有引号，单双都可以  功能强大，可以特殊字符，获取变量 [name]
+
+EL表达式的隐士对象
+* 作用域对象
+   pageScope  requestScope  sessionScope  applicationScope
+* 参数访问对象
+   获取表单 request.getParameter (${param})     request.getParameterValues (${paramValues})    
+   
+
+
