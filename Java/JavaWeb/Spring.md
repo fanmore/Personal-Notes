@@ -39,29 +39,64 @@ IOC 容器赋值时，简单类型（8个基本 + String）赋值用 value，如
 
 **注意** ：依赖注入底层是使用反射实现的。
 
-注入方式：set 方式、构造器方式、
+注入方式：set 方式、构造器方式、P命名空间
 
 set方法：
 ```xml
 <!-- id 唯一标识符 class 指定类型，下面这句等同于 User user = new User(),加载时自动 new 一个对象 -->
-	<bean id="user" class="demo01.User">
-		<!-- 通过 set 方法给对象赋值 -->
-		<property name="name" value="李四"></property>
-		<property name="age" value="21"></property>
-	</bean>
-	<!-- IOC 容器赋值时，简单类型（8个基本 + String）赋值用 value，如果是对象类型，用 ref ，ref = "引用对象的 id 值" -->
+<bean id="user" class="demo01.User">
+	<!-- 通过 set 方法给对象赋值 -->
+	<property name="name" value="李四"></property>
+	<property name="age" value="21"></property>
+</bean>
+<!-- IOC 容器赋值时，简单类型（8个基本 + String）赋值用 value，如果是对象类型，用 ref ，ref = "引用对象的 id 值" -->
 ```
 构造器方法：
 ```xml
 <bean id="user" class="demo01.User">
-		<!-- 通过 构造器 方法给对象赋值  -->
-		<constructor-arg value="wangwu" ></constructor-arg>
-		<constructor-arg value="23"></constructor-arg>
-		<!-- 同样，简单类型（8个基本 + String）赋值用 value，如果是对象类型，用 ref ，ref = "引用对象的 id 值"  -->
-		<!-- 不指定需要和构造器顺序一致，可以指定 name index type 可指定一个也可以多个 -->
-	</bean>
+	<!-- 通过 构造器 方法给对象赋值  -->
+	<constructor-arg value="wangwu" ></constructor-arg>
+	<constructor-arg value="23"></constructor-arg>
+	<!-- 同样，简单类型（8个基本 + String）赋值用 value，如果是对象类型，用 ref ，ref = "引用对象的 id 值"  -->
+	<!-- 不指定需要和构造器顺序一致，可以指定 name index type 可指定一个也可以多个 -->
+</bean>
 ```
 
+P命名空间：
+需要加入 P 的支持
+```xml
+xmlns:p="http://www.springframework.org/schema/p"
+<!-- 同样需要注意 ref ， 注意留空格 -->
+```
+
+**注意** ：三种方式在注入时都依赖无参构造
+
+注入各种数据类型
+
+* list
+   ```xml
+   <bean id="" class="">
+	<property name="">
+		<list>
+			<value></value>
+		</list>
+	</property>
+   </bean>
+   ```
+* 其余大同小异
+
+**注意** ： value 可以用 <value> 这样不用引号
+	
+## 注解实现 IOC
+
+1. @Component("name")
+2. 扫描器
+   ```xml
+   <context:component-scan base-package="demo01"></context:component-scan>
+	<!-- 多个包用 , 隔开 -->
+   ```
+
+   
 
 
 
