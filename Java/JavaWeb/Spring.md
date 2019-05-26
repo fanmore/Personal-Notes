@@ -96,8 +96,19 @@ xmlns:p="http://www.springframework.org/schema/p"
 	<!-- 多个包用 , 隔开 -->
    ```
 
-   
+@Component 范围较大可以细化
 
+@Repository 用于 DAO 层
+
+@Service 用于 service层
+
+@Controller 用于控制层
+
+## 注解实现事务（声明式事务）
+
+jar包：tx 、 jdbc 、 commons-pool （连接池）、 commons-dbcp （连接池使用的数据源）、spring-jdbc 、 aopalliance
+
+配置：增加事务的命名空间 tx 
 
 
 
