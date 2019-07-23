@@ -3,8 +3,6 @@
 
 [PanDownload](http://pandownload.com/)：Windows下的网盘下载工具
 
-[网易教程](https://www.yiibai.com/)：专注于IT教程和实例
-
 [MarkDown的 Jar 包](https://gitee.com/cevin15/MDTool) ： Java 实现 markdowm 转 html
 
 
