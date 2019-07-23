@@ -1,6 +1,8 @@
+[TOC]
+
 ## 什么是 Maven
 
-Maven 是一个项目管理工具，它包含了一个项目对象模型，一组标准集合，一个项目生命周期，一个依赖管理系统，和用来运行定义在生命周期阶段中插件目标的逻辑
+Maven 是一个由 Apache 公司推出的一个管理项目的工具，它包含了一个项目对象模型，一组标准集合，一个项目生命周期，一个依赖管理系统，和用来运行定义在生命周期阶段中插件目标的逻辑
 
 ## Maven 能解决什么问题
 
@@ -11,17 +13,16 @@ Maven 是一个项目管理工具，它包含了一个项目对象模型，一�
 
 ## Maven下载及配置
 
-* 下载
+* 进入官网[Maven](<http://maven.apache.org/>) ，点击 Download。
 
-  [官网下载](<https://maven.apache.org/download.cgi>)
+  ![](../../../Java/img/apache-1563885812124.png)
 
-  或者搜索maven即可进入官网，点击Download下载zip文件解压即可
+或者搜索maven即可进入官网，点击Download下载zip文件解压即可
 
 * 配置
 
   1. 在环境变量中创建 MAVEN_HOME 并添加主路径
   2. 在 path 中添加 %MAVEN_HOME%\bin 即可
-
 * 测试，在 com 中输入 mvn -v
 
 ## 仓库机制
