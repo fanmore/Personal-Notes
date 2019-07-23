@@ -1,5 +1,3 @@
-[TOC]
-
 ## 什么是 Maven
 
 Maven 是一个由 Apache 公司推出的一个管理项目的工具，它包含了一个项目对象模型，一组标准集合，一个项目生命周期，一个依赖管理系统，和用来运行定义在生命周期阶段中插件目标的逻辑
@@ -13,17 +11,19 @@ Maven 是一个由 Apache 公司推出的一个管理项目的工具，它包含
 
 ## Maven下载及配置
 
-* 进入官网[Maven](<http://maven.apache.org/>) ，点击 Download。
+* 下载，进入 Apache 官网找到 [Maven](<http://maven.apache.org/>) ，点击 Download。
 
-  ![](../../../Java/img/apache-1563885812124.png)
-
-或者搜索maven即可进入官网，点击Download下载zip文件解压即可
+  ![](img/apache.png)
+  
+  然后下载对应版本。
+  
+  ![1563886928146](img/download.png)
 
 * 配置
 
   1. 在环境变量中创建 MAVEN_HOME 并添加主路径
   2. 在 path 中添加 %MAVEN_HOME%\bin 即可
-* 测试，在 com 中输入 mvn -v
+* 测试，在 cmd 中输入 mvn -v
 
 ## 仓库机制
 
@@ -76,6 +76,29 @@ maven 工程中的 jar 包是通过坐标来寻找的，首先会在系统盘中
         <version>2.0</version>
     </dependency>
 </dependencies>
+```
+
+### 设置 Maven
+
+设置本地仓库位置，打开文件中的 conf 文件下的 settings.xml 。
+
+大概在 53 行左右，将其提出注释之外进行设置。
+
+![settings](img/settings.png)
+
+设置中央仓库为阿里镜像。
+
+![mirror](img/mirror.png)
+
+添加内容：
+
+```xml
+<mirror>
+	    <id>nexus-aliyun</id>
+	    <mirrorOf>*</mirrorOf>
+	    <name>Nexus aliyun</name>
+	    <url>http://maven.aliyun.com/nexus/content/groups/public</url>
+	</mirror>
 ```
 
 ## IDEA 加入 Maven
