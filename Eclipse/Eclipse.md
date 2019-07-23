@@ -12,17 +12,17 @@
 
 - 关闭启动时激活的插件
 
-  ![1560657916358](Eclipse/1560657736588.png)
+  ![1560657916358](img/1560657736588.png)
 
 - 关闭启动时的更新检查
 
-  ![1560658140052](Eclipse/1560658140052.png)
+  ![1560658140052](img/1560658140052.png)
 
 
 
 ## 代码自动补全
 
-![1560659122293](Eclipse/1560659122293.png)
+![1560659122293](img/1560659122293.png)
 
 添加 .abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ
 
@@ -30,13 +30,12 @@
 
 ## JSP 的编码
 
-![1560659233396](Eclipse/1560659233396.png)
+![1560659233396](img/1560659233396.png)
 
 
 
 ## Web 的输出浏览器
 
-![1560659385305](Eclipse/1560659385305.png)
+![1560659385305](img/1560659385305.png)
 
-## 文件下载测试
-[Geek下载](https://github.com/fjgjp/Personal-Notes/raw/master/Eclipse/geek.exe)
+
