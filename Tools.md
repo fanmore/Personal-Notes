@@ -18,7 +18,6 @@ Windows平台下的**Markdown**编辑器，所见即所得。
 
 [谷歌助手](https://pan.baidu.com/s/1nGRn-9IsGN_fGl9bVCLEKw) 提取码：7eje
 
-如果出现语言不对，访问 www.goole.com/ncrs 。
 
 ### 油猴脚本
 
