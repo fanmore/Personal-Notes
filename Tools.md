@@ -27,8 +27,19 @@ Windows平台下的**Markdown**编辑器，所见即所得。
 
 搭配**PanDownload网页版**和**提取码自动补全**可实现百度文件的快速下载，不需客户端和第三方软件，如果在搭配**IDM**则下载速度很快。
 
+
+
 ### IDM
 
 [IDM](https://pan.baidu.com/s/1IS5Ev6uIK45rth7NGjoVvw) 提取码: ce3p
 
 多线程下载软件，Chrome需IDM插件，在插件中搜索即可。
+
+
+
+## Geek
+
+[Geek](https://www.lanzous.com/i551ahi)
+
+Windowns下的一款小巧的卸载软件，可以清理注册表，清理比较干净。
+
