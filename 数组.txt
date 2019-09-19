@@ -10,6 +10,6 @@ Java的内存划分为5个部分：
             字符            默认为'\u0000'
             布尔            默认为false
             引用类型        默认为null
-	3、方法区（Method Area）：存储.class相关的信息，包含方法的信息。
-	4、本地方法栈（Native Method Stack）：与操作系统相关。
-	5、寄存器（pc Register）：与CPU相关。
+    3、方法区（Method Area）：存储.class相关的信息，包含方法的信息。
+    4、本地方法栈（Native Method Stack）：与操作系统相关。
+    5、寄存器（pc Register）：与CPU相关。
