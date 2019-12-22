@@ -1,17 +1,3 @@
-## 个人笔记导航
-
-### Java语法基础
-
-* [JDK](https://github.com/fjgjp/Personal-Notes/blob/master/Java%E5%9F%BA%E7%A1%80/01_JDK.md)
-
-### Java面向对象
-
-
-### Java API
-
-
-
-
 ## 网站导航
 
 [菜鸟教程](<https://www.runoob.com/>)：IT学习文档
