@@ -18,3 +18,11 @@ public String getServlet(HttpServletRequest request, HttpServletResponse respons
     <scope>provided</scope>
 </dependency>
 ```
+
+## SpringMVC的方式
+原生获取方式高度与jar包耦合，不加入依赖都报错，需要使用SpringMVC的model
+
+开启jsp中EL表达式的支持`isELIgnored="false"`
+```jsp
+<%@ page contentType="text/html;charset=UTF-8" language="java" isELIgnored="false" %>
+```
