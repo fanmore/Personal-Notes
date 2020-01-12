@@ -1,0 +1,53 @@
+## 类型转换器
+servlet在获取参数时，都是String类型，在SpringMVC中，会自动转换为需要的类型，但也有些不是常规的无法转换，就需要自定义
+
+比如时间格式，2020/01/10就能转为Date格式，但是2020-01-11就不行，需要自定义
+
+注册类型转换器
+
+步骤
+1. 定义类型转换类
+```java
+import org.springframework.core.convert.converter.Converter;
+
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
+/**
+ * 字符串转日期
+ */
+public class StringToDate implements Converter<String, Date> {
+    @Override
+    public Date convert(String source) {
+        if (source == null) {
+            throw new RuntimeException("请传入数据");
+        }
+        DateFormat df = new SimpleDateFormat("yyyy-MM-dd");
+        try {
+            return df.parse(source);
+        } catch (ParseException e) {
+            e.printStackTrace();
+            throw new RuntimeException("数据类型转换出现错误");
+        }
+    }
+}
+```
+转换格式不可改
+2. 在springmvc中进行类型转换器的注册和开启生效
+```xml
+<!--  自定义类型转换器  -->
+<bean id="conversionService" class="org.springframework.context.support.ConversionServiceFactoryBean">
+    <property name="converters">
+        <set>
+            <!--  将自定义的格式转换类进行注册  -->
+            <bean class="com.controller.StringToDate"/>
+        </set>
+    </property>
+</bean>
+
+<!--  开启SpringMVC框架注解支持  -->
+<!--  配置类型转换器生效  -->
+<mvc:annotation-driven conversion-service="conversionService"/>
+```
